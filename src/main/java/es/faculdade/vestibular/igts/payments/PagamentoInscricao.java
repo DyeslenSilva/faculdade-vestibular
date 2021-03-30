@@ -5,10 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.paypal.api.payments.Amount;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payer;
 import com.paypal.api.payments.Payment;
+import com.paypal.api.payments.PaymentExecution;
 import com.paypal.api.payments.RedirectUrls;
 import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
@@ -81,8 +84,27 @@ public class PagamentoInscricao {
 		}
 		return response;
 		
-		
-		
+			
+		}
+		public Map<String, Object> confirmarPagamento(HttpServletRequest req) throws PayPalRESTException{
+			
+			Map<String, Object> respoMap = new HashMap<String, Object>();
+			Payment payment = new Payment();
+			payment.setId(req.getParameter(pagamentos.getIdPagamentos()));
+			
+			PaymentExecution paymentExecution = new PaymentExecution();
+			paymentExecution.setPayerId(req.getParameter(candidato.getCpf()));
+			
+			APIContext context = new APIContext(candidato.getCpf(),candidato.getCandidatoSecret(),sandbox);
+			
+			Payment createPayment = payment.execute(context, paymentExecution);
+			
+			if(createPayment !=null) {
+				respoMap.put(keyStatus, pagamentos.getStatus());
+				respoMap.put(pagamentos.getDetalhePagamento(), createPayment);
+			}
+			
+			return respoMap;
 		
 	}
 }

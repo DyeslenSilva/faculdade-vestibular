@@ -7,6 +7,7 @@ public class Pagamentos {
 
 	private String labelStatus;
 	private String status;
-	
+	private String idPagamentos;
+	private String detalhePagamento;
 	
 }
