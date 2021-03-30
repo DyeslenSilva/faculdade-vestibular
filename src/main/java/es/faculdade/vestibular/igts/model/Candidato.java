@@ -18,6 +18,8 @@ public class Candidato {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idCandidato;
 	
+	private String candidatoSecret;
+	
 	@Column
 	private String nomeDoCandidato;
 	
