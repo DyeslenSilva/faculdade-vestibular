@@ -29,12 +29,10 @@ public class ProvaAlunoSettings {
 	private boolean compressionedEnabled = false;
 	private boolean useOAuth = false;
 	
-	static
-	{
+	static {
 		System.getProperties().put("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
 		System.getProperties().put("org.apache.commons.logging.simplelog.defaultlog", "trace");
 	}
-	
-	
+		
 	
 }
