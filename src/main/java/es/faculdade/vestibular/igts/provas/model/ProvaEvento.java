@@ -19,5 +19,7 @@ public class ProvaEvento {
 	private String urlEvento;
 	private String message;
 	private String paginaInicial;
+	private LocalProva localProva;
+	
 	
 }
