@@ -105,6 +105,7 @@ public class PagamentoInscricao {
 			}
 			
 			return respoMap;
+		}
 		
-	}
+		
 }
