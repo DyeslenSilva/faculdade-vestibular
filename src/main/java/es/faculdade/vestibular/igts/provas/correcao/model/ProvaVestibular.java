@@ -16,6 +16,7 @@ public class ProvaVestibular {
 	private Float parcial;
 	private List<Candidato> candidatosAprovados;
 	private List<Candidato> candidatosReprovados;
+	private List<Candidato> todosOsCandidatos;
 	
 	public Float getCorrecaoDaProva(){
 		parcial = (float) (quantidadeDeAcertos/quantidadeDeQuestoes);
@@ -36,6 +37,14 @@ public class ProvaVestibular {
 		}
 	}
 	
+	
+	public List<Candidato> listaDeCandidatos(){
+		for(Candidato cand: todosOsCandidatos) {
+			return todosOsCandidatos;
+		}
+		return null;
+	}
+	
 	public List<Candidato> listaDeCandiatosAprovados(){
 		for(Candidato c : candidatosAprovados) {
 			return candidatosAprovados;
@@ -51,4 +60,14 @@ public class ProvaVestibular {
 		return null;
 	}
 
+	public Candidato candidatoAprovado(String cpf) {
+		for (Candidato ca : todosOsCandidatos) {
+			if(ca.getCpf() == cpf) {
+				return todosOsCandidatos.get(Integer.parseInt(cpf));
+			}else {
+				return null;
+			}
+		}
+		return null;
+	}
 }
